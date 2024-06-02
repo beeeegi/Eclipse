@@ -1,0 +1,229 @@
+* {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #1c1c1c;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.custom-file-upload, .upload-btn, .logout-btn, #switch-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-upload {
+    background-color: #000;
+    color: #fff;
+}
+
+.custom-file-upload:hover {
+    background-color: #333;
+}
+
+.upload-btn {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+.upload-btn:hover {
+    background-color: #219653;
+}
+
+.logout-btn {
+    background-color: rgb(10, 10, 10);
+    color: white;
+}
+
+.logout-btn:hover {
+    background-color: black;
+}
+
+.file-label {
+    background-color: #8b3620;
+    color: #fff;
+}
+
+.file-label:hover {
+    background-color: #ff4930;
+}
+
+.file-input {
+    display: none;
+}
+
+#file-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+    font-size: large;
+}
+
+#file-preview {
+    max-width: 100%;
+    max-height: 300px;
+}
+
+#library {
+    display: none;
+}
+
+#file-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#file-table th, #file-table td {
+    border: 2px solid rgb(28,28,28);
+    padding: 10px;
+    text-align: center;
+}
+
+#file-table th {
+    background-color: rgb(28,28,28);
+    color: white;
+}
+
+#file-table tr:nth-child(even) {
+    background-color: rgb(39, 39, 39);
+}
+
+#file-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#switch-btn {
+    background-color: #3498db;
+    color: #fff;
+}
+
+#switch-btn:hover {
+    background-color: #2980b9;
+}
+
+.main {
+    text-align: center;
+}
+
+#notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    z-index: 1000;
+}
+
+.notification {
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: slideAndFade 5s ease-out forwards;
+    opacity: 0;
+}
+
+.logout-btn {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: rgb(10, 10, 10);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+}
+
+.logout-btn:hover {
+    background-color: black;
+}
+
+.user {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+}
+
+.user img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.login button {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.discord img {
+    width: 110px;
+}
+
+.google img {
+    width: 100px;
+}
+
+.logo {
+    width: 100px;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 200px;
+    font-size: 50px;
+}
+
+@keyframes slideAndFade {
+    0% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}

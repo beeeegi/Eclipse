@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Eclipse</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <div class="main">
+        {% if 'discord_user' in session or 'google_user' in session %}
+            <button id="switch-btn" onclick="toggleSections()">ბიბლიოთეკა</button>
+            <div class="container">
+                <div id="upload-section">
+                    <input type="file" id="file-upload" name="file" class="file-input">
+                    <label for="file-upload" class="file-label custom-file-upload">
+                        აირჩიეთ ფაილი
+                    </label>
+                    <div id="file-info" style="display: none;">
+                        <p><span id="file-name"></span></p>
+                        <br>
+                        <p><span id="file-size"></span></p>
+                        <img id="file-preview" src="#" alt="File Preview" style="display: none;">
+                    </div>
+                    <button id="send-btn" class="upload-btn">ატვირთვა</button>
+                </div>
+                <div id="library" style="display: none;">
+                    <table id="file-table">
+                        <thead>
+                            <tr>
+                                <th>ფაილის სახელი</th>
+                                <th>ფაილის ზომა</th>
+                                <th>ატვირთვის დრო</th>
+                                <th>მოქმედება</th>
+                            </tr>
+                        </thead>
+                        <tbody id="file-list">
+                            <!-- files will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="user">
+                {% if 'discord_user' in session %}
+                    <img src="https://cdn.discordapp.com/avatars/{{ session['discord_user']['id'] }}/{{ session['discord_user']['avatar'] }}" alt="Avatar">
+                    <h1>{{ session['discord_user']['username'] }}</h1>
+                    <button class="logout-btn" onclick="location.href='/logout'">გასვლა</button>
+                {% elif 'google_user' in session %}
+                    <img src="{{ session['google_user']['avatar_url'] }}" alt="Avatar">
+                    <h1>{{ session['google_user']['email'] }}</h1>
+                    <button class="logout-btn" onclick="location.href='/logout'">გასვლა</button>
+                {% endif %}
+            </div>                             
+        {% else %}
+            <img class="logo" src="/static/images/Eclipse-nobg.png" alt="Eclipse">
+            <h1 class="title">Eclipse</h1>
+            <div class="login">
+                <h2>გაიარეთ ავტორიზაცია!</h2>
+                <button class="discord" onclick="location.href='/login/discord'"><img src="/static/images/discord-icon.png" alt=""></button>
+                <button class="google" onclick="location.href='/login/google'"><img src="/static/images/google-icon.png" alt=""></button>
+            </div>
+        {% endif %}
+        <div id="notification-container"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
