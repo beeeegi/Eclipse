@@ -43,3 +43,9 @@ You have two options here: Google or Discord
 ### File Upload
 After logging in, you will be presented with an option to upload a file or view the library.
 In the library section, you have option to download the file again or view file's name, size and the upload date.
+
+## Screenshots
+![image](https://github.com/beeeegi/Eclipse/assets/102294103/0080687d-ec8d-4405-b421-8cb8a3f49df6)
+![image](https://github.com/beeeegi/Eclipse/assets/102294103/480a0d8e-3b5f-45ad-b890-6f5c2a04b93a)
+
+
