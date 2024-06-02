@@ -7,13 +7,12 @@ I am not primarily a GUI developer, so the graphical user interface in this proj
 ## Setup and Installation
 `1.` Clone the repository
 ```bash
-git clone https://github.com/your-username/eclipse-file-uploader.git
-cd eclipse-file-uploader
+git clone https://github.com/beeeegi/Eclipse
 ```
 
 `2.` Install requirements
 ```bash
-cd eclipse-file-uploader
+cd eclipse
 pip install -r requirements.txt
 ```
 
