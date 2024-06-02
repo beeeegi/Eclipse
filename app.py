@@ -129,7 +129,7 @@ uploaded_files = []
 @app.route('/upload', methods=['POST'])
 @login_required
 def upload_file():
-    webhook_url = 'https://discord.com/api/webhooks/1225077084485845132/ZuylmrCsQgasy6-95E3Y-j7vH2WnAyAptBMORih94ERLWlvTHCbqZV7RrYL4WslInz_3'
+    webhook_url = 'your_webhook'
 
     if 'file' not in request.files:
         return jsonify(error='ფაილი არ ატვირთულა'), 400
