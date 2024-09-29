@@ -3,28 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="/static/style.css">
     <title>Eclipse</title>
+    <!-- Set favicon using Flask's url_for function -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
     <div class="main">
+        <!-- Check if user is logged in (either via Discord or Google) -->
         {% if 'discord_user' in session or 'google_user' in session %}
+            <!-- Toggle button to switch between upload and library views -->
             <button id="switch-btn" onclick="toggleSections()">ბიბლიოთეკა</button>
             <div class="container">
+                <!-- File upload section -->
                 <div id="upload-section">
+                    <!-- Hidden file input -->
                     <input type="file" id="file-upload" name="file" class="file-input">
+                    <!-- Custom styled label for file input -->
                     <label for="file-upload" class="file-label custom-file-upload">
                         აირჩიეთ ფაილი
                     </label>
+                    <!-- File information display (initially hidden) -->
                     <div id="file-info" style="display: none;">
                         <p><span id="file-name"></span></p>
                         <br>
                         <p><span id="file-size"></span></p>
                         <img id="file-preview" src="#" alt="File Preview" style="display: none;">
                     </div>
+                    <!-- Upload button -->
                     <button id="send-btn" class="upload-btn">ატვირთვა</button>
                 </div>
+                <!-- Library section (initially hidden) -->
                 <div id="library" style="display: none;">
                     <table id="file-table">
                         <thead>
@@ -36,33 +46,41 @@
                             </tr>
                         </thead>
                         <tbody id="file-list">
-                            <!-- files will be added here -->
+                            <!-- files will be added here dynamically -->
                         </tbody>
                     </table>
                 </div>
             </div>
+            <!-- User information section -->
             <div class="user">
                 {% if 'discord_user' in session %}
+                    <!-- Display Discord user information -->
                     <img src="https://cdn.discordapp.com/avatars/{{ session['discord_user']['id'] }}/{{ session['discord_user']['avatar'] }}" alt="Avatar">
                     <h1>{{ session['discord_user']['username'] }}</h1>
                     <button class="logout-btn" onclick="location.href='/logout'">გასვლა</button>
                 {% elif 'google_user' in session %}
+                    <!-- Display Google user information -->
                     <img src="{{ session['google_user']['avatar_url'] }}" alt="Avatar">
                     <h1>{{ session['google_user']['email'] }}</h1>
                     <button class="logout-btn" onclick="location.href='/logout'">გასვლა</button>
                 {% endif %}
             </div>                             
         {% else %}
+            <!-- Login page for non-authenticated users -->
             <img class="logo" src="/static/images/Eclipse-nobg.png" alt="Eclipse">
             <h1 class="title">Eclipse</h1>
             <div class="login">
                 <h2>გაიარეთ ავტორიზაცია!</h2>
+                <!-- Discord login button -->
                 <button class="discord" onclick="location.href='/login/discord'"><img src="/static/images/discord-icon.png" alt=""></button>
+                <!-- Google login button -->
                 <button class="google" onclick="location.href='/login/google'"><img src="/static/images/google-icon.png" alt=""></button>
             </div>
         {% endif %}
+        <!-- Container for displaying notifications -->
         <div id="notification-container"></div>
     </div>
+    <!-- Link to external JavaScript file -->
     <script src="/static/script.js"></script>
 </body>
 </html>
